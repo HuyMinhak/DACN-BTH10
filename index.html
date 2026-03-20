@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn Sử Dụng | QuanLyCSKH 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #0984e3;
+            --secondary-color: #00cec9;
+            --dark-color: #2d3436;
+            --light-bg: #f4f7f6;
+            --white: #ffffff;
+            --admin-color: #6c5ce7;
+            --staff-color: #e17055;
+            --accent: #fd79a8;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--dark-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Header có hiệu ứng màu gradient chuyển động cực ảo */
+        header {
+            background: linear-gradient(-45deg, var(--primary-color), var(--secondary-color), var(--admin-color), var(--accent));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header h1 { margin: 0; font-size: 3em; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; text-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
+        header p { opacity: 0.95; font-size: 1.2em; margin-top: 15px; font-weight: 300; }
+
+        .container { max-width: 1050px; margin: -50px auto 50px; padding: 0 20px; position: relative; z-index: 10; }
+
+        /* Hiệu ứng nổi bọt (Fade In Up) cho các khối */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Thẻ thông tin phần mềm */
+        .info-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            animation: fadeInUp 0.8s ease forwards;
+            border-left: 8px solid var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+        .info-card:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+        .info-text h2 { color: var(--primary-color); margin-top: 0; font-size: 1.8em; }
+
+        .highlight-text {
+            display: inline-block;
+            background: linear-gradient(120deg, var(--primary-color), var(--admin-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Phần Quyền Hạn */
+        .roles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin-bottom: 60px;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .role-box {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .role-box:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+
+        .role-header {
+            padding: 25px;
+            color: white;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .admin-head { background: linear-gradient(135deg, var(--admin-color), #a29bfe); }
+        .staff-head { background: linear-gradient(135deg, var(--staff-color), #fab1a0); }
+
+        .role-content { padding: 30px; }
+        .role-content ul { list-style: none; padding: 0; }
+        .role-content li { 
+            padding: 12px 0; 
+            border-bottom: 1px dashed #dfe6e9;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+        }
+        .role-content li:hover { padding-left: 10px; color: var(--primary-color); }
+        .role-content li:last-child { border-bottom: none; }
+        .role-content li i { font-size: 1.2em; }
+        .role-content li i.fa-check { color: #00b894; }
+        .role-content li i.fa-xmark { color: #d63031; }
+        .role-content li i.fa-lock { color: #fdcb6e; }
+
+        /* Tính năng nổi bật */
+        .features { text-align: center; margin-top: 50px; animation: fadeInUp 1.2s ease forwards; }
+        .features h2 { font-size: 2em; color: var(--dark-color); margin-bottom: 40px; }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature-item {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        /* Hiệu ứng trượt màu khi hover vào tính năng */
+        .feature-item::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 0;
+            background: linear-gradient(135deg, rgba(9, 132, 227, 0.1), rgba(0, 206, 201, 0.1));
+            transition: all 0.4s ease; z-index: -1;
+        }
+        .feature-item:hover::before { height: 100%; }
+        .feature-item:hover { transform: translateY(-10px); }
+        
+        .feature-item i { 
+            font-size: 3em; 
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px; 
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: var(--dark-color);
+            color: white;
+            margin-top: 80px;
+            font-weight: 300;
+        }
+        .dev-badge {
+            display: inline-block; background: var(--accent); color: white;
+            padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em;
+            box-shadow: 0 5px 15px rgba(253, 121, 168, 0.4);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fa-solid fa-headset"></i> QuanLyCSKH 2026</h1>
+    <p>Hệ thống chăm sóc khách hàng toàn diện & đẳng cấp</p>
+</header>
+
+<div class="container">
+    <div class="info-card">
+        <div class="info-text">
+            <h2><i class="fa-solid fa-circle-info"></i> Giới Thiệu Phiên Bản 2026</h2>
+            <p>Hệ thống <b>QuanLyCSKH</b> được nâng cấp toàn diện với giao diện hiện đại, tốc độ xử lý vượt trội. Đây là giải pháp công nghệ số 1 giúp doanh nghiệp tối ưu hóa quy trình tương tác khách hàng và gia tăng doanh số.</p>
+            <p>
+                <b>Phiên bản:</b> 2026.1.0 (Premium) | 
+                <span class="highlight-text">Phát triển bởi: HUYMINH</span>
+            </p>
+        </div>
+    </div>
+
+    <h2 style="text-align: center; margin-bottom: 40px; font-size: 2.2em; color: var(--dark-color);">
+        <i class="fa-solid fa-key" style="color: #f1c40f;"></i> BẢNG PHÂN QUYỀN TRUY CẬP
+    </h2>
+
+    <div class="roles">
+        <div class="role-box">
+            <div class="role-header admin-head">
+                <i class="fa-solid fa-user-shield"></i> QUẢN TRỊ VIÊN
+            </div>
+            <div class="role-content">
+                <p><i>Quyền lực tối cao, điều hành toàn bộ hệ thống:</i></p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Quản lý Nhân viên & Giao việc (Phân công)</li>
+                    <li><i class="fa-solid fa-check"></i> Kiểm soát Khách hàng & Sản phẩm</li>
+                    <li><i class="fa-solid fa-check"></i> Duyệt Hóa đơn & Chi tiết hóa đơn</li>
+                    <li><i class="fa-solid fa-check"></i> Xem Báo cáo Sinh nhật khách hàng</li>
+                    <li><i class="fa-solid fa-check"></i> Phân tích Hiệu quả & Năng suất (Pie Chart)</li>
+                    <li><i class="fa-solid fa-check"></i> Nhập/Xuất toàn bộ dữ liệu Excel/PDF</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="role-box">
+            <div class="role-header staff-head">
+                <i class="fa-solid fa-user-tie"></i> NHÂN VIÊN
+            </div>
+            <div class="role-content">
+                <p><i>Thực thi nghiệp vụ, chuyên viên tư vấn:</i></p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Thao tác Khách hàng & Sản phẩm</li>
+                    <li><i class="fa-solid fa-check"></i> Lập Hóa đơn & Chi tiết hóa đơn</li>
+                    <li><i class="fa-solid fa-check"></i> Xem Báo cáo thống kê cơ bản</li>
+                    <li><i class="fa-solid fa-xmark"></i> Không có quyền Phân công chăm sóc</li>
+                    <li><i class="fa-solid fa-xmark"></i> Không có quyền Quản lý nhân sự</li>
+                    <li><i class="fa-solid fa-lock"></i> Giới hạn một số chức năng quản trị</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="features">
+        <h2><i class="fa-solid fa-star" style="color: #f1c40f;"></i> TÍNH NĂNG NỔI BẬT</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <h3>Tìm Kiếm Thông Minh</h3>
+                <p>Tra cứu dữ liệu siêu tốc độ, lọc thông tin khách hàng cực kỳ chuẩn xác.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-chart-pie"></i>
+                <h3>Thống Kê Đỉnh Cao</h3>
+                <p>Tích hợp biểu đồ trực quan, theo dõi % hiệu quả chăm sóc theo thời gian thực.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-file-export"></i>
+                <h3>Xuất Báo Cáo Xịn</h3>
+                <p>Hỗ trợ kết xuất file PDF và Excel đẹp mắt, chuyên nghiệp cho mọi cuộc họp.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="dev-badge"><i class="fa-solid fa-code"></i> DESIGNED BY HUYMINH</div>
+    <p>&copy; 2026 Phần mềm QuanLyCSKH. All rights reserved.</p>
+    <p>Khoa CNTT - Đại học An Giang (fit.agu.edu.vn)</p>
+</footer>
+
+</body>
+</html>

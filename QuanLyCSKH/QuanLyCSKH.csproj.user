@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Forms\DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\HoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\HoaDon_ChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\PhanCongChamSoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reports\frmBaoCaoHieuQua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reports\frmBaoCaoHoatDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reports\frmBaoCaoSinhNhat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Reports\dsThongKeHieuQua.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Reports\QLCSKHDataSet.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+</Project>
